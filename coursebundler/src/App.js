@@ -18,6 +18,7 @@ import PaymentSuccess from './components/Payments/PaymentSuccess';
 import PaymentFailed from './components/Payments/PaymentFailed';
 import CoursePage from './components/CoursePage/CoursePage';
 import Profile from './components/Profile/Profile';
+import ChangePassword from './components/Profile/ChangePassword';
 
 function App() {
 
@@ -32,6 +33,8 @@ function App() {
         <Route path="/courses" element={<Courses/>} />
         <Route path="/contact" element={<Contact/>} />
         <Route path="/profile" element={<Profile/>} />
+        <Route path="/changepassword" element={<ChangePassword/>} />
+        <Route path="/changepassword" element={<ChangePassword/>} />
         <Route path="/courses/:id" element={<CoursePage/>} />
         <Route path="/request" element={<Request/>} />
         <Route path="/about" element={<About/>} />
