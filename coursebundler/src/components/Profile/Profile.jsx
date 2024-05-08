@@ -21,7 +21,7 @@ import {
 import React, { useState } from 'react';
 import { RiDeleteBin7Fill } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
-import {fileUploadCss} from '../Auth/Register';
+import { fileUploadCss } from '../Auth/Register';
 
 const Profile = () => {
   const user = {
@@ -44,12 +44,12 @@ const Profile = () => {
     console.log(id);
   };
 
-  const ChangeImageSubmitHandler = (e,image)=>{
-    e.preventDefault()
-    console.log(image)
-  }
+  const ChangeImageSubmitHandler = (e, image) => {
+    e.preventDefault();
+    console.log(image);
+  };
 
-  const {isOpen,onClose,onOpen}=useDisclosure()
+  const { isOpen, onClose, onOpen } = useDisclosure();
 
   return (
     <Container minH={'95vh'} maxW={'container.lg'} py={'8'}>
@@ -135,14 +135,18 @@ const Profile = () => {
           ))}
         </Stack>
       )}
-      <ChangePhotoBox  ChangeImageSubmitHandler={ChangeImageSubmitHandler} isOpen={isOpen} onClose={onClose} />
+      <ChangePhotoBox
+        ChangeImageSubmitHandler={ChangeImageSubmitHandler}
+        isOpen={isOpen}
+        onClose={onClose}
+      />
     </Container>
   );
 };
 
 export default Profile;
 
-function ChangePhotoBox({isOpen,onClose,ChangeImageSubmitHandler}) {
+function ChangePhotoBox({ isOpen, onClose, ChangeImageSubmitHandler }) {
   const [imagePrev, setImagePrev] = useState('');
   const [image, setImage] = useState('');
 
@@ -157,12 +161,12 @@ function ChangePhotoBox({isOpen,onClose,ChangeImageSubmitHandler}) {
     };
   };
 
-  const CloseHandler = ()=>{
-    onClose()
-    setImagePrev('')
-    setImage('')
-  }
-  
+  const CloseHandler = () => {
+    onClose();
+    setImagePrev('');
+    setImage('');
+  };
+
   return (
     <Modal isOpen={isOpen} onClose={CloseHandler}>
       <ModalOverlay backdropFilter={'blue(10px)'} />
@@ -171,16 +175,21 @@ function ChangePhotoBox({isOpen,onClose,ChangeImageSubmitHandler}) {
         <ModalCloseButton />
         <ModalBody>
           <Container>
-            <form onSubmit={(e)=>ChangeImageSubmitHandler(e,image)}>
+            <form onSubmit={e => ChangeImageSubmitHandler(e, image)}>
               <VStack spacing={'8'}>
                 {imagePrev && <Avatar src={imagePrev} boxSize={'48'} />}
                 <Input
-                my={'5'}
+                  my={'5'}
                   type="file"
                   css={{ '&::file-selector-button': fileUploadCss }}
                   onChange={ChangeImage}
                 />
-                <Button ChangeImageSubmitHandler={ChangeImageSubmitHandler}  w={'full'} colorScheme="yellow" type="submit">
+                <Button
+                  ChangeImageSubmitHandler={ChangeImageSubmitHandler}
+                  w={'full'}
+                  colorScheme="yellow"
+                  type="submit"
+                >
                   Change photo
                 </Button>
               </VStack>
@@ -188,7 +197,9 @@ function ChangePhotoBox({isOpen,onClose,ChangeImageSubmitHandler}) {
           </Container>
         </ModalBody>
         <ModalFooter>
-          <Button mr={'3'} onClick={CloseHandler}>cancel</Button>
+          <Button mr={'3'} onClick={CloseHandler}>
+            cancel
+          </Button>
         </ModalFooter>
       </ModalContent>
     </Modal>
