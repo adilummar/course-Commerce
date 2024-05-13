@@ -51,8 +51,8 @@ const AdminCourses = () => {
     console.log(lectureId);
   };
 
-  const addLectureHandler=()=>{
-
+  const addLectureHandler=(e,courseId,title,description,video)=>{
+    e.preventDefault()
   }
 
   return (
